@@ -7,10 +7,7 @@ extern "C" {
     fn alert(s: &str);
 }
 
-#[wasm_bindgen]
-pub fn greet(name:&str ) {
-    alert(&format!("Hello, {}!", name));
-}
+
 #[wasm_bindgen]
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -20,13 +17,11 @@ pub enum Cell {
     Alive = 1,
 }
 
-
-struct Universe {
+#[wasm_bindgen]
+pub struct Universe {
     height:u32,
     width:u32,
-    Cell:Vec<Cell>,
-
-
+    cells:Vec<Cell>,
 }
 
 #[wasm_bindgen]
